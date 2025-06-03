@@ -1,0 +1,1286 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700;800&family=Roboto:wght@400;600;700&display=swap');
+/* This single import loads:
+   - Abhaya Libre with weights: Regular (400), Bold (700), ExtraBold (800)
+   - Roboto with weights: Regular (400), SemiBold (600), Bold (700)
+*/
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Fallback font */
+    /* ... */
+}
+:root {
+    --primary: #2563EB;
+    --primary-dark: #1E40AF;
+    --primary-light: #EFF6FF;
+    --secondary: #10B981;
+    --text-dark: #1F2937;
+    --text-medium: #396eb8;
+    --text-light: #6B7280;
+    --white: #FFFFFF;
+    --gray-light: #F3F4F6;
+    --border-radius: 12px;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --icon-bg: #e3f2fd;
+    --icon-color: #0d6efd;
+    --heading-color: #212529;
+    --text-color: #495057;
+}
+
+/* Basic Reset & Body (if not already present) */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Consistent font */
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Re-use container for consistent max-width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Add horizontal padding for smaller screens */
+}
+
+/* Header and Navbar */
+.main-header {
+    background-color: #fff; /* White background */
+    padding: 0; /* Vertical padding */
+    top: 0;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Pushes logo/nav-links left/right */
+    align-items: center; /* Vertically align items */
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    flex-shrink: 0; /* Prevent logo from shrinking */
+    margin-right: 20px; /* Space from nav links */
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-grow: 1; /* Allows nav links to take available space */
+    justify-content: center; /* Center the nav links */
+}
+
+.nav-links li {
+    margin: 0 15px; /* Space between nav items */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    padding: 5px 0; /* Padding for click area */
+    transition: color 0.3s ease;
+    font-family: 'Abhaya Libre SemiBold';
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0px;
+}
+
+.nav-links a:hover {
+    color: #000; /* Darker on hover */
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 25px; /* Rounded corners */
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.get-app-btn {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    border: 1px solid #000; /* Solid border */
+    margin-left: 20px; /* Space from nav links */
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.get-app-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative; /* For aligning bars */
+    z-index: 1001; /* Ensure it's on top */
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle span:last-child {
+    margin-bottom: 0;
+}
+
+/* Animation for active toggle */
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: space-between; /* Logo left, toggle right */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column; /* Stack vertically */
+        position: absolute;
+        top: 80px; /* Adjust based on header height */
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 20px 0;
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when active */
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links li {
+        margin: 15px 0; /* More vertical space */
+    }
+
+    .nav-links a {
+        font-size: 1.1em;
+    }
+
+    .get-app-btn {
+        display: none; /* Hide desktop button on mobile, will be moved into menu if desired */
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger icon */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: 15px 0;
+    }
+
+    .logo {
+        font-size: 1.5em;
+    }
+
+    .nav-links {
+        top: 70px; /* Adjust for smaller header height */
+    }
+}
+
+/*-----------Hero Section------------*/
+/* Ensure basic container styles are consistent */
+.container {
+    max-width: 1200px; /* Or your desired max-width */
+    margin: 0 auto;
+    padding: 0 20px; /* Add horizontal padding */
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: #fff; /* White background */
+    padding: 80px 0 60px; /* Adjust padding as needed */
+    text-align: center; /* Center all text and elements */
+    overflow: hidden; /* To handle potential overflow of mockups */
+}
+
+.hero-tagline-small {
+    font-size: 0.9em;
+    color: #888; /* Lighter color */
+    margin-bottom: 10px;
+}
+
+.hero-title {
+    color: #000000;
+    font-family: 'Abhaya Libre ExtraBold';
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-align: center;
+    gap: 4px;
+}
+
+.hero-subtitle {
+    font-family: 'Abhaya Libre SemiBold';
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    margin-bottom: 60px; /* Space above mockups */
+}
+
+.hero-section .app-store-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 400px;
+    max-height: 52px;
+    top: 1084px;
+    left: 528px;
+    gap: 24px;
+    margin: 0 auto;
+}
+
+.hero-section .app-button {
+    width: 180px;
+    height: 52px;
+    display: inline;
+    text-decoration: none;
+}
+
+.iphone-mockups-container {
+    display: flex;
+    justify-content: center; /* Center the mockups */
+    gap: 20px; /* Space between mockups */
+    margin-bottom: 50px; /* Space below mockups */
+    position: relative; /* For precise positioning if needed */
+    z-index: 1; /* Ensure mockups are above other potential elements */
+    max-width: 788px;
+    max-height: 532px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.iphone-mockup {
+    width: 239.46475219726562px;
+    height: 485.4015197753906px;
+    /*max-width: 250px; Max width for each mockup
+    height: auto; */
+    display: block;
+    /* Optional: Add a subtle shadow if your mockups don't have one */
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+    margin: 20px 0;
+}
+
+.middle {
+    width: 262px;
+    height: 532.0000610351562px;
+    margin: 0;
+}
+
+/* Specific adjustments if the middle iPhone is slightly larger or elevated */
+.iphone-mockups-container .iphone-mockup:nth-child(2) {
+    /* If the middle iPhone is meant to be a bit more prominent */
+    /*transform: translateY(-10px); */
+    /* max-width: 270px; */
+}
+
+
+.app-button img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero-section {
+        padding: 60px 0 40px;
+    }
+
+    .hero-title {
+        font-size: 3em;
+        margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+    }
+
+    .iphone-mockups-container {
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .iphone-mockup {
+        max-width: 200px; /* Smaller mockups */
+    }
+
+    .app-button {
+        width: 160px; /* Smaller badges */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 50px 0 30px;
+    }
+
+    .hero-title {
+        font-size: 2.5em;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+    }
+
+    .iphone-mockups-container {
+        flex-direction: column; /* Stack mockups vertically */
+        align-items: center; /* Center stacked mockups */
+        gap: 25px; /* Space between stacked mockups */
+        margin-bottom: 30px;
+    }
+
+    .iphone-mockup {
+        max-width: 220px; /* Slightly larger when stacked, but not too big */
+    }
+
+    .app-store-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center;
+        gap: 15px;
+    }
+
+    .app-button {
+        width: 200px; /* Give stacked buttons a slightly larger, consistent width */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 30px 0 20px;
+    }
+
+    .hero-tagline-small {
+        font-size: 0.8em;
+    }
+
+    .hero-title {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95em;
+        margin-bottom: 25px;
+    }
+
+    .iphone-mockup {
+        max-width: 180px; /* Smaller mockups for very small screens */
+    }
+
+    .app-button {
+        width: 180px; /* Adjust button size for small phones */
+    }
+}
+
+.container {
+    max-width: 1200px; /* Or your desired max-width */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* About App Section */
+.about-app-section {
+    padding: 60px 0; /* Adjust padding as needed */
+    background-color: #fff; /* White background as in the image */
+    text-align: center; /* Center the title initially */
+}
+
+.section-title {
+    font-family: 'Abhaya Libre ExtraBold';
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-align: center;
+    margin-bottom: 200px; /* Space below the title */
+    color: #000000;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    align-items: center; /* Vertically align items */
+    justify-content: center; /* Center content horizontally */
+    gap: 320px; /* Space between the iPhone mockup and text */
+    max-height: 532px;
+}
+
+.iphone-mockup {
+    flex: 1; /* Allows it to take available space */
+    min-width: 262px; /* Minimum width for the mockup */
+    max-width: 532px; /* Maximum width for the mockup */
+    display: flex; /* To center image if it's smaller */
+    justify-content: center;
+    align-items: center;
+}
+
+.iphone-image {
+    max-width: 100%; /* Ensures the image scales down */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes extra space below image */
+}
+
+/* CSS for a simple iPhone mockup if you don't have an image */
+/*
+.iphone-frame {
+    width: 250px;
+    height: 500px;
+    border: 10px solid #333;
+    border-radius: 40px;
+    position: relative;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.notch {
+    width: 120px;
+    height: 25px;
+    background-color: #333;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    position: absolute;
+    top: 0;
+}
+
+.screen {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    background-color: #fff;
+    border-radius: 30px;
+    position: relative;
+    z-index: 1;
+}
+*/
+
+.app-description {
+    flex: 2; /* Allows it to take more space than the mockup */
+    max-width: 600px; /* Limit the width of the text block */
+    text-align: left; /* Align text to the left as in the image */
+}
+
+.description-heading {
+    font-family: 'Abhaya Libre ExtraBold';
+    font-size: 32px; /* Adjust size */
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 20px;
+    line-height: 100%;
+    letter-spacing: 0px;
+}
+
+.description-text {
+    font-size: 20px; /* Adjust size */
+    font-weight: 600;
+    color: #000000;
+    font-family: 'Abhaya Libre SemiBold';
+    line-height: 180%;
+    letter-spacing: 0px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 2em;
+        margin-bottom: 40px;
+    }
+
+    .about-content {
+        flex-direction: column; /* Stack items vertically on medium screens */
+        text-align: center; /* Center content when stacked */
+    }
+
+    .iphone-mockup {
+        margin-bottom: 30px; /* Add space below mockup when stacked */
+    }
+
+    .app-description {
+        max-width: 80%; /* Adjust max-width for text on smaller screens */
+        text-align: center; /* Center text when stacked */
+    }
+
+    .description-heading {
+        font-size: 1.6em;
+    }
+
+    .description-text {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-app-section {
+        padding: 40px 0;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+
+    .iphone-mockup {
+        min-width: 200px;
+        max-width: 300px;
+    }
+
+    .app-description {
+        max-width: 90%;
+    }
+
+    .description-heading {
+        font-size: 1.4em;
+    }
+
+    .description-text {
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-app-section {
+        padding: 30px 0;
+    }
+
+    .section-title {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .iphone-mockup {
+        min-width: unset; /* Remove min-width to allow it to shrink further */
+        width: 80%; /* Make it take up 80% of the parent width */
+        margin-bottom: 20px;
+    }
+
+    .app-description {
+        max-width: 95%;
+    }
+
+    .description-heading {
+        font-size: 1.2em;
+    }
+
+    .description-text {
+        font-size: 0.9em;
+    }
+}
+
+
+/* =============Features Section============ */
+/* Ensure the basic container and title styles are consistent */
+.container {
+    max-width: 1200px; /* Or your desired max-width */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 2.5em; /* Adjust size */
+    color: #333;
+    margin-bottom: 50px; /* Space below the title */
+    text-align: center; /* Center the title */
+}
+
+/* Features Section */
+
+/* Features Section Styling */
+.features-section h1 {
+    font-family: 'Abhaya Libre ExtraBold';
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-align: center;
+    margin-bottom: 150px;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 200px auto;
+}
+
+.feature-card {
+  background: #ffffff;
+  border: 4px solid #000;
+  border-bottom: none;
+  border-radius: 8px;
+  width: 363px;
+  height: 314px;
+  text-align: center;
+  position: relative;
+}
+
+.feature-card img {
+  width: 224px;
+  height: 456px;
+  position: absolute;
+  top: -166px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.feature-content-box {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners as in the image */
+    padding: 30px; /* Top padding to account for the icon overlapping */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensure boxes are same height if content varies */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 10;
+}
+
+.feature-card h2 {
+  margin-top: 10px;
+  font-family: 'Abhaya Libre ExtraBold';
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-align: center;
+
+}
+
+.feature-card p {
+  margin-top: 10px;
+  font-family: 'Abhaya Libre SemiBold';
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 180%;
+    letter-spacing: 0px;
+    text-align: center;
+
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .features-section h1 {
+    font-size: 28px;
+  }
+
+  .feature-card {
+    width: 90%;
+  }
+}
+
+
+
+/* Ensure basic container styles are consistent */
+.container {
+    max-width: 1200px; /* Or your desired max-width */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Download App Section */
+.download-app-section {
+    background-color: #000000; /* Black background as in the image */
+    color: #fff; /* White text color */
+    padding: 100px 0; /* Adjust padding as needed */
+    text-align: center; /* Center all content */
+    height: 600px;
+}
+
+.download-app-section .section-title {
+    font-size: 2.8em; /* Adjust size */
+    color: #fff; /* White title color */
+    margin-bottom: 30px; /* Space below the title */
+    font-weight: normal; /* As seen in the image, often not bold */
+}
+
+.download-app-section .section-description {
+    font-size: 1.15em; /* Adjust size */
+    max-width: 800px; /* Limit text width for readability */
+    margin: 0 auto 50px; /* Center description and add space below */
+    line-height: 1.7;
+    color: #ccc; /* Slightly lighter color for description */
+}
+
+.app-store-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 20px; /* Space between buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.app-button {
+    display: inline-block; /* Allows padding and margin */
+    text-decoration: none; /* Remove underline from links */
+    /* Adjust width/height for the image badges */
+    width: 180px; /* Example width, adjust based on your image size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.app-button img {
+    max-width: 100%; /* Ensure images scale down */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .download-app-section {
+        padding: 80px 0;
+    }
+
+    .download-app-section .section-title {
+        font-size: 2.4em;
+        margin-bottom: 25px;
+    }
+
+    .download-app-section .section-description {
+        font-size: 1.05em;
+        max-width: 700px;
+        margin-bottom: 40px;
+    }
+
+    .app-button {
+        width: 160px; /* Smaller button size */
+    }
+}
+
+@media (max-width: 768px) {
+    .download-app-section {
+        padding: 60px 0;
+    }
+
+    .download-app-section .section-title {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    .download-app-section .section-description {
+        font-size: 1em;
+        max-width: 90%; /* Allow description to take more width */
+        margin-bottom: 30px;
+    }
+
+    .app-store-buttons {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+        align-items: center; /* Center stacked buttons */
+        gap: 15px; /* Adjust gap for stacked buttons */
+    }
+
+    .app-button {
+        width: 200px; /* Give stacked buttons a slightly larger, consistent width */
+    }
+}
+
+@media (max-width: 480px) {
+    .download-app-section {
+        padding: 40px 0;
+    }
+
+    .download-app-section .section-title {
+        font-size: 1.6em;
+        margin-bottom: 15px;
+    }
+
+    .download-app-section .section-description {
+        font-size: 0.9em;
+        margin-bottom: 25px;
+    }
+
+    .app-button {
+        width: 180px; /* Adjust button size for small phones */
+    }
+}
+
+/*======================== Testimonial Section ========================*/
+/* Ensure basic container and title styles are consistent */
+.container {
+    max-width: 1200px; /* Or your desired max-width */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 2.5em; /* Adjust size */
+    color: #333;
+    margin-bottom: 50px; /* Space below the title */
+    text-align: center; /* Center the title */
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 80px 0;
+    background-color: #fff; /* White background */
+}
+
+
+.testimonials-grid-wrapper {
+    /* This wrapper is conceptually for a slider, so we set overflow hidden */
+    overflow: hidden;
+    margin-bottom: 40px; /* Space above navigation arrows */
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for testimonials */
+    /* For slider functionality, you might use transform: translateX() here */
+    /* transition: transform 0.5s ease-in-out; */
+}
+
+.testimonial-item {
+    padding: 40px;
+    border: 1px solid transparent; /* No individual border initially */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes author to bottom */
+    min-height: 250px; /* Ensures consistent height */
+    
+}
+
+/* Remove bottom border for last row */
+.testimonials-grid .testimonial-item:nth-last-child(-n+2) {
+    border-bottom: none;
+}
+
+/* Remove right border for items in the right column */
+.testimonials-grid .testimonial-item:nth-child(2n) {
+    border-right: none;
+}
+
+
+.testimonial-text {
+    font-size: 1.05em;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: auto; /* Pushes the author to the bottom if content is short */
+}
+
+.author-circle {
+    width: 30px;
+    height: 30px;
+    background-color: #e0e0e0; /* Light gray circle */
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0; /* Prevent it from shrinking */
+}
+
+.author-name {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.95em;
+}
+
+.testimonial-navigation {
+    display: flex;
+    justify-content: flex-end; /* Align arrows to the right */
+    gap: 15px; /* Space between arrows */
+    margin-top: 20px; /* Space above the navigation */
+}
+
+.nav-arrow {
+    background: none;
+    border: none;
+    width: 24px;
+    height: 40px;
+    font-size: 1.5em;
+    color: #00000080;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background-color: #f0f0f0;
+    color: #333;
+    border-color: #999;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr; /* Single column on medium screens */
+    }
+
+    .testimonial-item {
+        padding: 30px;
+        min-height: unset; /* Allow height to adjust naturally */
+        border-right: none; /* Remove right border when stacked */
+        border-bottom: 1px solid #ADD8E6; /* Ensure bottom border is present for all but last */
+    }
+
+    /* Adjust border for the very last item when stacked */
+    .testimonials-grid .testimonial-item:last-child {
+        border-bottom: none;
+    }
+
+    .testimonials-grid-wrapper {
+        border: none; /* Remove overall grid border when stacked, rely on item borders */
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .testimonial-item {
+        padding: 25px;
+    }
+
+    .testimonial-text {
+        font-size: 0.95em;
+    }
+
+    .author-circle {
+        width: 25px;
+        height: 25px;
+    }
+
+    .author-name {
+        font-size: 0.9em;
+    }
+
+    .testimonial-navigation {
+        justify-content: center; /* Center arrows on smaller screens */
+    }
+
+    .nav-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-section {
+        padding: 40px 0;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+
+    .testimonial-item {
+        padding: 20px;
+    }
+
+    .testimonial-text {
+        font-size: 0.9em;
+        margin-bottom: 15px;
+    }
+}
+
+/*========================== Footer Section ===================*/
+/* Ensure basic container styles are consistent */
+.container {
+    max-width: 1200px; /* Or your desired max-width */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Main Footer */
+.main-footer {
+    background-color: #fff; /* White background as in the image */
+    padding: 80px 0 40px; /* Adjust padding as needed */
+    color: #333;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr; /* 3 columns: Nav, Contact, Newsletter (Newsletter wider) */
+    gap: 40px; /* Space between columns */
+    margin-bottom: 50px; /* Space above the bottom row */
+    align-items: start; /* Align items to the top of their grid cells */
+}
+
+.footer-column {
+    /* Basic styling for all columns */
+}
+
+.footer-heading {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Navigation Column */
+.nav-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-column ul li {
+    margin-bottom: 10px;
+}
+
+.nav-column ul li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.nav-column ul li a:hover {
+    color: #000; /* Darker on hover */
+}
+
+/* Contact Column */
+.contact-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-column ul li {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 1em;
+}
+
+/* Newsletter Column */
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.newsletter-input {
+    flex: 1; /* Allows input to grow */
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.95em;
+    min-width: 180px; /* Minimum width for input before wrapping */
+}
+
+.submit-button {
+    background-color: #333; /* Dark background for button */
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    display: flex; /* For icon alignment */
+    align-items: center;
+    gap: 8px; /* Space between text and icon */
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #555;
+}
+
+/* Bottom Row */
+.footer-bottom {
+    grid-column: 1 / -1; /* Spans across all columns in the grid */
+    display: flex;
+    justify-content: space-between; /* Pushes app badges to left, social to right */
+    align-items: center; /* Vertically align items */
+    padding-top: 30px; /* Space from the content above */
+    border-top: 1px solid #eee; /* Light line above the bottom section */
+}
+
+.app-badges {
+    display: flex;
+    gap: 15px; /* Space between badges */
+    flex-wrap: wrap; /* Allow badges to wrap */
+}
+
+.app-badge-link {
+    display: block;
+    width: 120px; /* Fixed width for the badges */
+    height: auto;
+}
+
+.app-badge-link img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px; /* Space between social icons */
+}
+
+.social-links a {
+    color: #555;
+    font-size: 1.5em; /* Size of social icons */
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #000;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columns on medium screens */
+        gap: 30px;
+    }
+
+    /* Move newsletter to its own row if it's the 3rd column, or let it flow */
+    .newsletter-column {
+        grid-column: span 2; /* Span across both columns */
+        text-align: center;
+    }
+
+    .newsletter-form {
+        justify-content: center; /* Center form elements when newsletter spans */
+    }
+
+    .footer-bottom {
+        flex-direction: column; /* Stack bottom items */
+        gap: 25px; /* Space between stacked items */
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+        gap: 40px;
+        text-align: center; /* Center content in columns */
+    }
+
+    .footer-heading {
+        margin-bottom: 15px;
+    }
+
+    .nav-column ul,
+    .contact-column ul {
+        margin-bottom: 20px; /* Add space below lists when stacked */
+    }
+
+    .newsletter-column {
+        grid-column: span 1; /* Reset span to 1 when in single column */
+    }
+
+    .newsletter-form {
+        flex-direction: column; /* Stack input and button */
+        align-items: center; /* Center stacked form elements */
+    }
+
+    .newsletter-input {
+        width: 80%; /* Make input wider when stacked */
+        max-width: 300px;
+        margin-bottom: 10px; /* Space below input */
+    }
+
+    .submit-button {
+        width: fit-content; /* Adjust width to content */
+    }
+
+    .app-badges {
+        justify-content: center;
+    }
+
+    .social-links {
+        margin-top: 10px; /* Space above social links if app badges are present */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-footer {
+        padding: 40px 0 20px;
+    }
+
+    .footer-heading {
+        font-size: 1.1em;
+    }
+
+    .nav-column ul li a,
+    .contact-column ul li {
+        font-size: 0.9em;
+    }
+
+    .newsletter-input,
+    .submit-button {
+        font-size: 0.9em;
+        padding: 10px 15px;
+    }
+
+    .app-badge-link {
+        width: 100px; /* Smaller badges */
+    }
+
+    .social-links a {
+        font-size: 1.3em; /* Smaller social icons */
+    }
+}

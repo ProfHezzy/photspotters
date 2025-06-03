@@ -17,7 +17,7 @@
     --text-medium: #396eb8;
     --text-light: #6B7280;
     --white: #FFFFFF;
-    --gray-light: #F3F4F6;
+    --gray-light: #D9D9D9;
     --border-radius: 12px;
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -963,9 +963,17 @@ body {
     margin-bottom: 50px;
 }
 
+.testimonials-section .section-title {
+    font-family: 'Abhaya Libre';
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-align: center;
+}
+
 .testimonials-grid-wrapper {
     /* Main wrapper for the grid */
-    border: 1px solid #e0e0e0; /* Single border around the entire grid */
     border-radius: var(--border-radius);
     overflow: hidden; /* Ensure borders are crisp */
     margin-bottom: 40px;
@@ -983,9 +991,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 250px;
-    border-right: 1px solid #e0e0e0; /* Border for all items on the right */
-    border-bottom: 1px solid #e0e0e0; /* Border for all items on the bottom */
 }
 
 /* Specific border removal for layout */
@@ -1000,11 +1005,12 @@ body {
 
 
 .testimonial-text {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.05em;
     color: var(--text-dark);
-    line-height: 1.7;
-    margin-bottom: 20px;
+    font-family: 'Abhaya Libre' sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 180%;
+    letter-spacing: 0px;
 }
 
 .testimonial-author {
@@ -1014,8 +1020,8 @@ body {
 }
 
 .author-circle {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
     background-color: var(--gray-light);
     border-radius: 50%;
     margin-right: 10px;
@@ -1023,10 +1029,12 @@ body {
 }
 
 .author-name {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700; /* Bold */
     color: var(--text-dark);
-    font-size: 0.95em;
+    font-family: 'Abhaya Libre';
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0px;
 }
 
 .testimonial-navigation {

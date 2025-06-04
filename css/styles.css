@@ -626,6 +626,7 @@ body {
 }
 
 .feature-card {
+    outline: none;
     position: relative; /* Essential for positioning the image within the card */
     width: 100%; /* Default to full width for mobile-first approach */
     max-width: 362px; /* Fixed max-width for desktop/larger screens */
@@ -649,6 +650,7 @@ body {
 }
 
 .feature-content-box {
+    outline: none;
     background-color: var(--white);
     border: 4px solid var(--black);
     border-radius: var(--border-radius);

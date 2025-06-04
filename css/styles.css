@@ -289,16 +289,16 @@ body {
     margin-bottom: 50px;
     position: relative;
     z-index: 1;
-    /* max-width: 788px; - Removed, let content dictate width */
-    /* max-height: 532px; - Removed, let content dictate height */
+    max-width: 788px; /*- Removed, let content dictate width */
+    max-height: 532px; /*- Removed, let content dictate height */
     margin-left: auto;
     margin-right: auto;
 }
 
 .iphone-mockup {
     /* Using max-width and height: auto is generally better for responsive images */
-    max-width: 240px; /* A reasonable max-width for each mockup */
-    height: auto;
+    max-width: 239.46475219726562px; /* A reasonable max-width for each mockup */
+    height: 485.4015197753906px;
     display: block;
     filter: drop-shadow(0 15px 30px rgba(0,0,0,0.15)); /* Stronger shadow */
     transition: transform 0.3s ease;
@@ -307,8 +307,9 @@ body {
 
 .iphone-mockups-container .iphone-mockup:nth-child(2) {
     /* Slightly larger and elevated for the middle phone */
-    max-width: 260px; /* Example: 20px wider than others */
-    transform: translateY(-20px); /* Lift it up */
+    min-width: 262px; /* Example: 20px wider than others */
+    min-height: 532px;
+    transform: translateY(25px);/*  Bring it down */
     z-index: 2; /* Ensure it overlaps properly if needed */
 }
 

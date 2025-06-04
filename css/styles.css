@@ -701,6 +701,11 @@ body {
 }
 
 /* Responsive Adjustments for Features Section */
+@media (min-width: 992px) {
+    .feature-card:nth-child(3){
+        margin-top: 170px; /* Reset margin for the first card */
+    }
+}
 @media (max-width: 992px) {
     .features-section .section-title {
         font-size: 2.2em;

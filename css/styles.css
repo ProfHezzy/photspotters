@@ -713,10 +713,14 @@ body {
         max-width: calc(50% - 15px); /* Two columns on medium screens, accounts for gap */
     }
 
+    .feature-card:nth-child(3){
+        margin-top: 130px; /* Reset margin for the first card */
+    }
+
     .feature-card img {
         width: 180px; /* Scale image down */
         height: auto; /* Maintain aspect ratio */
-        top: -80px; /* Adjust top offset */
+        top: -130px; /* Adjust top offset */
     }
 
     .feature-content-box {
@@ -745,7 +749,7 @@ body {
     }
     .features {
         padding-top: 30px;
-        gap: 40px; /* Slightly smaller gap */
+        gap: 50px; /* Slightly smaller gap */
     }
 
     .feature-card {
@@ -754,10 +758,18 @@ body {
         margin: 50px 0;
     }
 
+    .feature-card:nth-child(1){
+        margin-top: -80px; /* Reset margin for the first card */
+    }
+
+    .feature-card:nth-child(3){
+        margin-top: 50px; /* Reset margin for the first card */
+    }
+
     .feature-card img {
         width: 150px;
         height: auto;
-        top: -70px;
+        top: -110px;
     }
 
     .feature-content-box {
@@ -820,15 +832,20 @@ body {
     .features {
         padding-top: 15px;
         gap: 30px;
+        margin: 15px auto;
     }
     .feature-card {
         max-width: 280px; /* Even smaller max-width */
         padding-bottom: 15px; /* Adds a bit of space at the bottom of the card on smallest screens */
     }
 
+    .feature-card:nth-child(1){
+        margin-top: 80px; /* Reset margin for the first card */
+    }
+
     .feature-card img {
         width: 100px; /* Smaller image */
-        top: -45px; /* Adjust top offset */
+        top: -75px; /* Adjust top offset */
     }
 
     .feature-content-box {

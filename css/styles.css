@@ -701,9 +701,9 @@ body {
 }
 
 /* Responsive Adjustments for Features Section */
-@media (min-width: 992px) {
+@media (min-width: 992px) and (max-width: 1145px) {
     .feature-card:nth-child(3){
-        margin-top: 170px; /* Reset margin for the first card */
+        margin-top: 170px;  /*Reset margin for the first card*/ 
     }
 }
 @media (max-width: 992px) {
